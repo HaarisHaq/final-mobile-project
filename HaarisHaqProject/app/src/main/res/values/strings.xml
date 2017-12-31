@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">HaarisHaqProject</string>
+    <string name="playButton">Play</string>
+    <string name="title_activity_game">GameActivity</string>
+    <string name="aboutButton">About Us</string>
+    <string name="aboutHeader">About</string>
+    <string name="aboutParagraph">Created by Haaris Haq\n\n
+        Based on Don\'t Tap the White Tile/Piano Tiles by Cheetah Games</string>
+    <string name="aboutCopy">\u00A9 Haaris Haq PROG3210 2017</string>
+    <string name="login">Login</string>
+    <string name="backButton">Back</string>
+    <string name="nameText">Name</string>
+    <string name="emailText">Email Address</string>
+    <string name="submitButton">Submit</string>
+    <string-array name="gender">
+        <item>Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string name="title_activity_login2">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="scoreButton">Scores</string>
+    <string name="prompt_name">User Name</string>
+    <string name="prompt_given_name">Given Name</string>
+    <string name="prompt_surname">Surname</string>
+    <string name="action_register">Register</string>
+    <string name="error_no_input">No Input</string>
+    <string name="registerButton">Register</string>
+</resources>
