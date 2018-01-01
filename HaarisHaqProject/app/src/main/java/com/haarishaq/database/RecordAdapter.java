@@ -10,6 +10,8 @@ import android.widget.ListView;
 
 import com.haarishaq.view.R;
 
+import java.util.List;
+
 /**
  * Created by Haaris Haq on 05/12/2017.
  */
@@ -18,13 +20,19 @@ public class RecordAdapter extends BaseAdapter {
 
     AppDatabase db;
     private Context context;
+    public static final int HISCORE = 0;
+    public static final int USER = 1;
+    public static final int OTHER = 2;
+
+    private List list;
 
     private void initializeDB() {
         db = AppDatabase.getDatabase(context);
     }
 
-    public RecordAdapter(Context context) {
+    public RecordAdapter(Context context, List list) {
         this.context = context;
+        this.list = list;
     }
 
     @Override
@@ -35,6 +43,14 @@ public class RecordAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
+        switch(position){
+            case HISCORE:
+                break;
+            case USER:
+                break;
+            case OTHER:
+                break;
+        }
         return null;
     }
 

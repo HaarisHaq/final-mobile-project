@@ -26,7 +26,7 @@ public class ScoresActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scores);
-/*
+
         db = AppDatabase.getDatabase(this);
         AppDatabase.spoofData();
 
@@ -37,7 +37,7 @@ public class ScoresActivity extends AppCompatActivity {
         ListView lv;
         List<Hiscore> scoreList = new ArrayList<>();
         scoreList.addAll(hiscore.getAllHiscores());
-        scoresGridView.setAdapter(new RecordAdapter(this));*/
+        scoresGridView.setAdapter(new RecordAdapter(this, scoreList));
     }
 
     @Override

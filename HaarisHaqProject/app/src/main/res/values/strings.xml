@@ -39,4 +39,6 @@
     <string name="action_register">Register</string>
     <string name="error_no_input">No Input</string>
     <string name="registerButton">Register</string>
+    <string name="scores">Scores</string>
+    <string name="names">Names</string>
 </resources>
