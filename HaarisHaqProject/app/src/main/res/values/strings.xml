@@ -41,4 +41,5 @@
     <string name="registerButton">Register</string>
     <string name="scores">Scores</string>
     <string name="names">Names</string>
+    <string name="scoreText">vurld</string>
 </resources>

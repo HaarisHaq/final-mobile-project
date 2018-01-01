@@ -37,7 +37,9 @@
             android:name="com.haarishaq.view.ScoresActivity"
             android:label="Scores" />
         <activity android:name="com.haarishaq.view.RegisterActivity"
-            android:label="register"/>
+            android:label="Register"/>
+        <activity android:name="com.haarishaq.view.userlist"
+            android:label="Users"/>
     </application>
 
 </manifest>

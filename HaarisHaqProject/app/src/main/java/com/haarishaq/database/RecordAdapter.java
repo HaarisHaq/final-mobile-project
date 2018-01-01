@@ -1,12 +1,13 @@
 package com.haarishaq.database;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
-import android.widget.ListView;
+import android.widget.TextView;
 
 import com.haarishaq.view.R;
 
@@ -18,21 +19,21 @@ import java.util.List;
 
 public class RecordAdapter extends BaseAdapter {
 
-    AppDatabase db;
+    private static AppDatabase db;
     private Context context;
-    public static final int HISCORE = 0;
-    public static final int USER = 1;
-    public static final int OTHER = 2;
 
-    private List list;
+    private LayoutInflater inflater;
+
+    private List<Hiscore> lHiscores;
 
     private void initializeDB() {
         db = AppDatabase.getDatabase(context);
     }
 
-    public RecordAdapter(Context context, List list) {
+    public RecordAdapter(Context context, List<Hiscore> lHiscores) {
         this.context = context;
-        this.list = list;
+        this.lHiscores = lHiscores;
+        inflater = LayoutInflater.from(context);
     }
 
     @Override
@@ -43,15 +44,7 @@ public class RecordAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        switch(position){
-            case HISCORE:
-                break;
-            case USER:
-                break;
-            case OTHER:
-                break;
-        }
-        return null;
+        return lHiscores.get(position);
     }
 
     @Override
@@ -59,17 +52,21 @@ public class RecordAdapter extends BaseAdapter {
         return 0;
     }
 
+    @SuppressLint("ViewHolder")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ListView lv;
-        if (convertView == null) {
-            lv = new ListView(context);
-            lv.setLayoutParams(new GridView.LayoutParams(85, 85));
-            lv.setPadding(8, 8, 8, 8);
-        } else {
-            lv = (ListView) convertView;
-        }
-        lv.setAdapter(new ArrayAdapter<>(context, R.layout.simplerow, db.hiscoreDAO().getAllHiscores()));
-        return lv;
+        //try {
+            View listItemView;
+            listItemView = inflater.inflate(R.layout.simplerow, null);
+            TextView nameView = (TextView) listItemView.findViewById(R.id.nameColumn);
+            TextView scoreView = (TextView) listItemView.findViewById(R.id.scoreColumn);
+
+            nameView.setText(db.userDAO().getUser(lHiscores.get(position).userId).get(0).userName);
+            scoreView.setText(lHiscores.get(position).score + "");
+            return listItemView;/*
+        } catch (Exception e) {
+            Log.d("########3", "getView:" + e.getMessage());
+            return new View(context);
+        }*/
     }
 }

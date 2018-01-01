@@ -33,11 +33,10 @@ public class ScoresActivity extends AppCompatActivity {
         HiscoreDAO hiscore = db.hiscoreDAO();
         UserDAO user = db.userDAO();
 
-        GridView scoresGridView = (GridView) findViewById(R.id.scoreGrid);
-        ListView lv;
+        ListView lv = (ListView) findViewById(R.id.scoreListView);
         List<Hiscore> scoreList = new ArrayList<>();
         scoreList.addAll(hiscore.getAllHiscores());
-        scoresGridView.setAdapter(new RecordAdapter(this, scoreList));
+        lv.setAdapter(new RecordAdapter(this, scoreList));
     }
 
     @Override
