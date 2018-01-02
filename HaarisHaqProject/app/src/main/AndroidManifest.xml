@@ -16,6 +16,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <service android:name=".MyFirebaseMessagingService"
+            >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
         <activity android:name="com.haarishaq.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +40,8 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_game"
             android:theme="@style/FullscreenTheme" />
-        <activity android:name="com.haarishaq.view.AboutActivity"
+        <activity
+            android:name="com.haarishaq.view.AboutActivity"
             android:label="About" />
         <activity
             android:name="com.haarishaq.view.LoginActivity"
@@ -36,10 +49,12 @@
         <activity
             android:name="com.haarishaq.view.ScoresActivity"
             android:label="Scores" />
-        <activity android:name="com.haarishaq.view.RegisterActivity"
-            android:label="Register"/>
-        <activity android:name="com.haarishaq.view.userlist"
-            android:label="Users"/>
+        <activity
+            android:name="com.haarishaq.view.RegisterActivity"
+            android:label="Register" />
+        <activity
+            android:name="com.haarishaq.view.userlist"
+            android:label="Users" />
     </application>
 
 </manifest>

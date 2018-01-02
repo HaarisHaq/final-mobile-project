@@ -1,5 +1,7 @@
 package com.haarishaq.view;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,10 +14,20 @@ public class AboutActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         findViewById(R.id.backButton).setOnClickListener(this);
+        findViewById(R.id.contactUsButton).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.backButton) finish();
+        switch (v.getId()) {
+            case R.id.backButton:
+                finish();
+                break;
+            case R.id.contactUsButton:
+                String number = "5198074810";
+                Intent sendIntent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", number, null));
+                startActivity(sendIntent);
+                break;
+        }
     }
 }

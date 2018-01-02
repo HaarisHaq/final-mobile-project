@@ -27,16 +27,6 @@ public class GameCanvasView extends View {
         init();
     }
 
-    public GameCanvasView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        init();
-    }
-
-    public GameCanvasView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
-    }
-
     private void init() {
         int strokeWidth = 1;
 
