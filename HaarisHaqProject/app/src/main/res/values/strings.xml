@@ -34,8 +34,8 @@
     <string name="action_register">Register</string>
     <string name="error_no_input">No Input</string>
     <string name="registerButton">Register</string>
-    <string name="scores">Scores</string>
-    <string name="names">Names</string>
+    <string name="scores">Score</string>
+    <string name="names">Name</string>
     <string name="contactButton">Contact Us</string>
     <string name="logout">Log Out</string>
     <string name="userListText">See Members</string>

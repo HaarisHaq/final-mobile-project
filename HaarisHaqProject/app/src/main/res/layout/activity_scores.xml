@@ -13,13 +13,11 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="123dp"
+            style="@style/ListHead"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/names"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_weight="1"
+            android:text="@string/names" />
 
         <View
             android:layout_width="1dp"
@@ -27,13 +25,11 @@
             android:background="@color/line_dark" />
 
         <TextView
-            android:layout_width="wrap_content"
+            style="@style/ListHead"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="@string/scores"
-            android:textColor="@color/colorPrimary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_weight="1"
+            android:text="@string/scores" />
     </LinearLayout>
 
     <View

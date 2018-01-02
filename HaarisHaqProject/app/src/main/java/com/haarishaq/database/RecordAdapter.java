@@ -2,7 +2,6 @@ package com.haarishaq.database;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,7 +56,7 @@ public class RecordAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         //try {
             View listItemView;
-            listItemView = inflater.inflate(R.layout.simplerow, null);
+            listItemView = inflater.inflate(R.layout.fragment_score_list_item_row, null);
             TextView nameView = (TextView) listItemView.findViewById(R.id.nameColumn);
             TextView scoreView = (TextView) listItemView.findViewById(R.id.scoreColumn);
 

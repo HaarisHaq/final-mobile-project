@@ -18,7 +18,7 @@ public class userlist extends AppCompatActivity {
 
     protected void onCreate(Bundle b){
         super.onCreate(b);
-        setContentView(R.layout.userlist);
+        setContentView(R.layout.activity_userlist);
         AppDatabase db = AppDatabase.getDatabase(this);
         ListView lv = (ListView) findViewById(R.id.userList);
         List<User> lUser = db.userDAO().getAllUsers();
@@ -27,7 +27,7 @@ public class userlist extends AppCompatActivity {
         for(int i = 0; i< lUser.size(); i++){
             names[i] = lUser.get(i).userName;
         }
-        lv.setAdapter(new ArrayAdapter<>(this, R.layout.newtext, names));
+        lv.setAdapter(new ArrayAdapter<>(this, R.layout.fragment_user_item, names));
         db.close();
     }
 }
