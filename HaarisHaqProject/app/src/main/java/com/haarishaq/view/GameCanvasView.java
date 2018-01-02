@@ -8,17 +8,19 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.haarishaq.game.TileRow;
+
 /**
  * Created by Haaris Haq on 28/09/2017.
  */
 
 public class GameCanvasView extends View {
-    Paint paint;
+    Paint whitePaint;
     Paint canvasBackground;
     Paint textPaint;
-    Paint blackTile;
-    int top;
-    int bottom;
+    Paint blackPaint;
+
+    TileRowView[] rows = new TileRowView[6];
 
     public GameCanvasView(Context context) {
         super(context);
@@ -36,15 +38,17 @@ public class GameCanvasView extends View {
     }
 
     private void init() {
-        paint = new Paint();
-        paint.setStrokeWidth(1);
-        paint.setColor(Color.BLACK);
-        paint.setStyle(Paint.Style.STROKE);
+        int strokeWidth = 1;
 
-        blackTile = new Paint();
-        blackTile.setStrokeWidth(1);
-        blackTile.setColor(Color.BLACK);
-        blackTile.setStyle(Paint.Style.FILL_AND_STROKE);
+        whitePaint = new Paint();
+        whitePaint.setStrokeWidth(strokeWidth);
+        whitePaint.setColor(Color.BLACK);
+        whitePaint.setStyle(Paint.Style.STROKE);
+
+        blackPaint = new Paint();
+        blackPaint.setStrokeWidth(strokeWidth);
+        blackPaint.setColor(Color.BLACK);
+        blackPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 
         canvasBackground = new Paint();
         canvasBackground.setColor(Color.WHITE);
@@ -55,18 +59,32 @@ public class GameCanvasView extends View {
         textPaint.setColor(Color.BLACK);
     }
 
+    void Draw(Canvas canvas) {
+        String message = "Not currently implemented";
+        canvas.drawText(message, this.getWidth() / 2 - textPaint.measureText(message) / 2, this.getBottom() / 3, textPaint);
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        init();
         canvas.drawRect(0, 0, this.getRight(), this.getBottom(), canvasBackground);
-        top = this.getBottom() - 350;
-        bottom = this.getBottom();
-        int width = (1 + this.getRight()) / 4;
-        canvas.drawRect(1, top, width, bottom, blackTile);
-        canvas.drawRect(1 + width, top, 2 * width, bottom, paint);
-        canvas.drawRect(1 + width * 2, top, 3 * width, bottom, paint);
-        canvas.drawRect(1 + width * 3, top, this.getRight(), bottom, paint);
-        String message = "Not currently implemented";
-        canvas.drawText(message, this.getWidth() / 2 - textPaint.measureText(message) / 2, this.getBottom() / 3, textPaint);
+        Draw(canvas);
+    }
+
+    public class TileRowView extends TileRow {
+        public Boolean isAlive = null;
+
+        public TileRowView(int blackTile, Canvas canvas, View view) {
+            super(blackTile, canvas, view);
+            isAlive = true;
+        }
+
+        public void CheckLiving() {
+            if (bottom <= 0) {
+                isAlive = false;
+            }
+        }
+
     }
 }

@@ -4,7 +4,6 @@ package com.haarishaq.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,7 +47,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         Button bRegistrate = (Button) findViewById(R.id.registrateButton);
         bRegistrate.setOnClickListener(this);
 
-        Button btn = (Button) findViewById(R.id.newbuttonlol);
+        Button btn = (Button) findViewById(R.id.userList);
         btn.setOnClickListener(this);
     }
 
@@ -73,7 +72,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             String surname = mSurnameView.getText().toString();
             if (isEmailValid(email) && isPasswordValid(password) &&
                     !userName.equals("") && !givenName.equals("") && !surname.equals("")) {
-                Log.d("####", "congrats on registering an account!");
                 AppDatabase db = AppDatabase.getDatabase(this);
                 List<User> lUser = db.userDAO().getAllUsers();
                 for (User u : lUser) {
@@ -87,7 +85,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 db.close();
             }
         }
-        if (v.getId() == R.id.newbuttonlol) {
+        if (v.getId() == R.id.userList) {
             startActivity(new Intent(this, userlist.class));
         }
     }
