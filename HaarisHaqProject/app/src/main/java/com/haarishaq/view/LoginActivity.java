@@ -114,7 +114,6 @@ public class LoginActivity extends AppCompatActivity {
             }
             if (userId > 0) {
                 db.logInDAO().addLogIn(new LogIn(userId));
-                db.close();
                 finish();
             } else {
                 mPasswordView.setError("Password may be incorrect");

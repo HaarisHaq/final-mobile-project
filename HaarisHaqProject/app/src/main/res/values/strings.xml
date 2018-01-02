@@ -41,4 +41,5 @@
     <string name="userListText">See Members</string>
     <string name="play_the_official_game">Play the Official Game</string>
     <string name="the_killing_joke">the killing joke</string>
+    <string name="pictureButton">Async Pic</string>
 </resources>

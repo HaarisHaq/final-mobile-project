@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -19,7 +18,6 @@ import java.net.URL;
 
 public class idkyet extends AppCompatActivity {
     private static final String TAG = "async";
-    final String FILENAME = "killing_joke.xml";
 
     @Override
     protected void onCreate(Bundle b) {
@@ -34,7 +32,7 @@ public class idkyet extends AppCompatActivity {
     }
 
     public void draw(Drawable d) {
-        ImageView image = findViewById(R.id.killingJokePic);
+        ImageView image = findViewById(R.id.inputStreamPic);
         image.setImageDrawable(d);
         image.invalidate();
     }
@@ -44,10 +42,8 @@ public class idkyet extends AppCompatActivity {
 
         protected Long doInBackground(URL... urls) {
             try {
-                InputStream in = urls[0].openStream();
-                Log.d(TAG, "doInBackground: " + urls[0]);
-                d = Drawable.createFromStream((InputStream) urls[0].getContent(), "");
-                in.close();
+                Log.d(TAG, "src image: " + urls[0]);
+                d = Drawable.createFromStream(urls[0].openStream(), "");
             } catch (IOException ioe) {
                 Log.e(TAG, ioe.toString());
             } catch (Exception e) {

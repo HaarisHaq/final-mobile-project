@@ -50,7 +50,8 @@
         <activity
             android:name="com.haarishaq.view.userlist"
             android:label="Users" />
-        <activity android:name="com.haarishaq.view.idkyet" />
+        <activity android:name="com.haarishaq.view.idkyet"
+            android:label="Picture"/>
     </application>
 
 </manifest>

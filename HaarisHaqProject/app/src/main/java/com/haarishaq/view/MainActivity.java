@@ -1,13 +1,11 @@
 package com.haarishaq.view;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import com.haarishaq.database.AppDatabase;
 
@@ -15,7 +13,6 @@ public class MainActivity extends AppCompatActivity
         implements View.OnClickListener {
     Button play, about, login, score, register;
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,14 +33,14 @@ public class MainActivity extends AppCompatActivity
         score = (Button) findViewById(R.id.scoreButton);
         score.setOnClickListener(this);
 
-        if(AppDatabase.getDatabase(this).logInDAO().getLoggedIn() != null){
+        if (AppDatabase.getDatabase(this).logInDAO().getLoggedIn() != null) {
             ViewGroup parent = (ViewGroup) login.getParent();
             Button logout = new Button(this);
             Button toAsyncPic = new Button(this);
             logout.setText(R.string.logout);
             logout.setLayoutParams(login.getLayoutParams());
             logout.setId(R.id.logOutButton);
-            toAsyncPic.setText("Async Pic");
+            toAsyncPic.setText(R.string.pictureButton);
             toAsyncPic.setLayoutParams(login.getLayoutParams());
             toAsyncPic.setId(R.id.asyncPicButton);
             parent.removeView(login);
@@ -52,8 +49,7 @@ public class MainActivity extends AppCompatActivity
             parent.addView(toAsyncPic);
             logout.setOnClickListener(this);
             toAsyncPic.setOnClickListener(this);
-        }
-        else{
+        } else {
             ViewGroup parent = (ViewGroup) play.getParent();
             parent.removeView(play);
         }
@@ -66,10 +62,10 @@ public class MainActivity extends AppCompatActivity
                 startActivity(new Intent(this, GameActivity.class));
                 break;
             case R.id.loginButton:
-                startActivity(new Intent(this, LoginActivity.class));
+                startActivityForResult(new Intent(this, LoginActivity.class), 0);
                 break;
             case R.id.aboutButton:
-                startActivity(new Intent( this, AboutActivity.class));
+                startActivity(new Intent(this, AboutActivity.class));
                 break;
             case R.id.registrateButton:
                 startActivity(new Intent(this, RegisterActivity.class));
@@ -85,5 +81,10 @@ public class MainActivity extends AppCompatActivity
                 startActivity(new Intent(this, idkyet.class));
                 break;
         }
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        recreate();
     }
 }
