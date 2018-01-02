@@ -15,6 +15,7 @@ public class AboutActivity extends AppCompatActivity
         setContentView(R.layout.activity_about);
         findViewById(R.id.backButton).setOnClickListener(this);
         findViewById(R.id.contactUsButton).setOnClickListener(this);
+        findViewById(R.id.officialGameButton).setOnClickListener(this);
     }
 
     @Override
@@ -28,6 +29,10 @@ public class AboutActivity extends AppCompatActivity
                 Intent sendIntent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", number, null));
                 startActivity(sendIntent);
                 break;
+            case R.id.officialGameButton:
+                String link = "https://play.google.com/store/apps/details?id=com.cmplay.tiles2&hl=en";
+                Intent officialGameIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+                startActivity(officialGameIntent);
         }
     }
 }
