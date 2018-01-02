@@ -42,4 +42,6 @@
     <string name="scores">Scores</string>
     <string name="names">Names</string>
     <string name="scoreText">vurld</string>
+    <string name="contactButton">Contact Us</string>
+    <string name="logout">Log Out</string>
 </resources>

@@ -5,17 +5,13 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-/**
- * Created by Haaris Haq on 01/12/2017.
- */
-
-@Database(entities = {User.class, Hiscore.class}, version = 16, exportSchema = false)
+@Database(entities = {User.class, Hiscore.class, LogIn.class}, version = 20, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE;
 
     public abstract HiscoreDAO hiscoreDAO();
-
     public abstract UserDAO userDAO();
+    public abstract LogInDAO logInDAO();
 
     public static AppDatabase getDatabase(Context context) {
         if (INSTANCE == null) {

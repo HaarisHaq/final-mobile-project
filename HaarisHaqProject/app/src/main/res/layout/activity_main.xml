@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    tools:context="com.haarishaq.view.MainActivity">
+    tools:context="com.haarishaq.view.MainActivity"
+    android:gravity="center">
 
     <Button
         android:id="@+id/playButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/loginButton"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
         android:text="@string/playButton" />
 
@@ -19,32 +18,19 @@
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/aboutButton"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
         android:text="@string/login" />
-
-    <Space
-        android:id="@+id/center"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" />
 
     <Button
         android:id="@+id/aboutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:text="@string/aboutButton" />
 
     <Button
         android:id="@+id/scoreButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/aboutButton"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:text="@string/scoreButton" />
 
@@ -52,9 +38,7 @@
         android:id="@+id/registrateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/scoreButton"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:text="@string/registerButton" />
 
-</RelativeLayout>
+</LinearLayout>

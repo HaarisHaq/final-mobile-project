@@ -18,17 +18,14 @@ public interface UserDAO {
     void addUser(User user);
 
     @Query("select * from user")
-    public List<User> getAllUsers();
+    List<User> getAllUsers();
 
     @Query("select * from user where id = :userId")
-    public List<User> getUser(int userId);
+    List<User> getUser(int userId);
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void updateUser(User user);
 
     @Query("delete from user where id = :userId")
     void removeUser(int userId);
-
-    @Query("delete from user")
-    void removeAllUsers();
 }

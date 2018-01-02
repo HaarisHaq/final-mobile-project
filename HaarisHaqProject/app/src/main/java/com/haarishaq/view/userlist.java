@@ -6,7 +6,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.haarishaq.database.AppDatabase;
-import com.haarishaq.database.AppDatabase_Impl;
 import com.haarishaq.database.User;
 
 import java.util.List;
