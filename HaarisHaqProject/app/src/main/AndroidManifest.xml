@@ -3,6 +3,7 @@
     package="com.haarishaq.view">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -49,6 +50,7 @@
         <activity
             android:name="com.haarishaq.view.userlist"
             android:label="Users" />
+        <activity android:name="com.haarishaq.view.idkyet" />
     </application>
 
 </manifest>

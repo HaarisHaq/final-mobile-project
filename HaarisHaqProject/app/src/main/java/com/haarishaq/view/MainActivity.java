@@ -1,5 +1,6 @@
 package com.haarishaq.view;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity
         implements View.OnClickListener {
     Button play, about, login, score, register;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,13 +39,23 @@ public class MainActivity extends AppCompatActivity
         if(AppDatabase.getDatabase(this).logInDAO().getLoggedIn() != null){
             ViewGroup parent = (ViewGroup) login.getParent();
             Button logout = new Button(this);
+            Button toAsyncPic = new Button(this);
             logout.setText(R.string.logout);
             logout.setLayoutParams(login.getLayoutParams());
             logout.setId(R.id.logOutButton);
+            toAsyncPic.setText("Async Pic");
+            toAsyncPic.setLayoutParams(login.getLayoutParams());
+            toAsyncPic.setId(R.id.asyncPicButton);
             parent.removeView(login);
             parent.removeView(register);
             parent.addView(logout);
+            parent.addView(toAsyncPic);
             logout.setOnClickListener(this);
+            toAsyncPic.setOnClickListener(this);
+        }
+        else{
+            ViewGroup parent = (ViewGroup) play.getParent();
+            parent.removeView(play);
         }
     }
 
@@ -51,7 +63,7 @@ public class MainActivity extends AppCompatActivity
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.playButton:
-                startActivity(new Intent(this, idkyet.class));
+                startActivity(new Intent(this, GameActivity.class));
                 break;
             case R.id.loginButton:
                 startActivity(new Intent(this, LoginActivity.class));
@@ -68,6 +80,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.logOutButton:
                 AppDatabase.getDatabase(this).logInDAO().removeLogIn();
                 this.recreate();
+                break;
+            case R.id.asyncPicButton:
+                startActivity(new Intent(this, idkyet.class));
                 break;
         }
     }

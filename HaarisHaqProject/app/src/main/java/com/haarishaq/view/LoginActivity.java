@@ -114,6 +114,7 @@ public class LoginActivity extends AppCompatActivity {
             }
             if (userId > 0) {
                 db.logInDAO().addLogIn(new LogIn(userId));
+                db.close();
                 finish();
             } else {
                 mPasswordView.setError("Password may be incorrect");
@@ -121,7 +122,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
     }
-
 
     private boolean isEmailValid(String email) {
         String pattern = "[^\\ ]+@{1}[a-zA-Z\\d]+[\\.]{1}[a-zA-Z\\d]{1,5}";
