@@ -10,7 +10,9 @@ public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE;
 
     public abstract HiscoreDAO hiscoreDAO();
+
     public abstract UserDAO userDAO();
+
     public abstract LogInDAO logInDAO();
 
     public static AppDatabase getDatabase(Context context) {
@@ -29,10 +31,10 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public static void spoofData() {
         User[] users = {
-                new User(1,"pen@mail.com","PenPal","Pen", "Pen","asdf123"),
-                new User(2, "Stylus@mail.com", "loseraccount", "Stylus", "Letter","asdf1234"),
-                new User(12, "Charcoal@mail.com", "wishiwasink", "Charcoal","Book", "asdf1234"),
-                new User(67, "pencil@mail.com", "almostadiamond", "Graphite","lastname", "asdf1234")
+                new User(1, "pen@mail.com", "PenPal", "Pen", "Pen", "asdf123"),
+                new User(2, "Stylus@mail.com", "loseraccount", "Stylus", "Letter", "asdf1234"),
+                new User(12, "Charcoal@mail.com", "wishiwasink", "Charcoal", "Book", "asdf1234"),
+                new User(67, "pencil@mail.com", "almostadiamond", "Graphite", "lastname", "asdf1234")
         };
 
         Hiscore[] scores = {
@@ -43,14 +45,17 @@ public abstract class AppDatabase extends RoomDatabase {
                 new Hiscore(12, "8:00", .8, 9001)
         };
 
-        if (INSTANCE.hiscoreDAO().getAllHiscores().size() > 0) {
-            INSTANCE.hiscoreDAO().removeAllHiscores();
-        }
-
         for (User u : users) {
             INSTANCE.userDAO().addUser(u);
         }
         for (Hiscore s : scores) {
+            if (INSTANCE.hiscoreDAO().getAllHiscores().size() > 0) {
+                for (Hiscore h : INSTANCE.hiscoreDAO().getAllHiscores()) {
+                    if (s.userId == h.userId && s.timeSet.equals(h.timeSet) && s.score == h.score) {
+                        return;
+                    }
+                }
+            }
             INSTANCE.hiscoreDAO().addHiscore(s);
         }
 

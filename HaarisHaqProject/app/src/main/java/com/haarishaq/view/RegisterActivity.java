@@ -82,7 +82,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 }
                 User mUser = new User(email, userName, givenName, surname, password);
                 db.userDAO().addUser(mUser);
-                db.close();
             }
         }
         if (v.getId() == R.id.userList) {
